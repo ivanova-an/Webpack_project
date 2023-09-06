@@ -33,6 +33,7 @@
     // import React from 'react';
     "allowSyntheticDefaultImports": true
   },
+
   "ts-node": {
     "compilerOptions": {
       "module": "CommonJS"
