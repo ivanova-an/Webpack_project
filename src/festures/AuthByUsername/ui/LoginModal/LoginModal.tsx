@@ -1,5 +1,4 @@
 import { Modal } from 'shared/ui/Modal/Modal';
-import { lazy } from 'react';
 import { LoginForm } from '../LoginForm/LoginForm';
 
 interface LoginModalProps {
