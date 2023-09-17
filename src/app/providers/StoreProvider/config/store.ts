@@ -30,3 +30,8 @@ export function createReduxStore(
 
     return store;
 }
+
+// создаем тип для диспатча, для того чтобы использовать все встроенные методы
+// Берем typeof из функции createReduxStore
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']
