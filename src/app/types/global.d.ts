@@ -7,12 +7,13 @@ declare module '*.scss' {
 }
 
 declare module '*.png';
-declare module '*.jpeg';
 declare module '*.jpg';
+declare module '*.jpeg';
 declare module '*.svg' {
-    import React = require('react');
+    import React from 'react';
 
-    const ReactComponent: React.FC<React.SVGProps<SVGSVGElement>>;
-    export default ReactComponent;
+    const SVG: React.VFC<React.SVGProps<SVGSVGElement>>;
+    export default SVG;
 }
+
 declare const __IS_DEV__: boolean;

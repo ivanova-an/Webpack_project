@@ -1,15 +1,14 @@
 import { classNames } from 'shared/lib/classNames/classNames';
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import React from 'react';
 import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 
 interface LangSwitcherProps {
     className?: string;
-    short?: boolean
+    short?: boolean;
 }
 
-export const LangSwitcher: FC<LangSwitcherProps> = (props) => {
-    const { className, short } = props;
+export const LangSwitcher = ({ className, short }: LangSwitcherProps) => {
     const { t, i18n } = useTranslation();
 
     const toggle = async () => {

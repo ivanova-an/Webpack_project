@@ -4,10 +4,10 @@ import { Button } from 'shared/ui/Button/Button';
 import cls from './ErrorPage.module.scss';
 
 interface ErrorPageProps {
-    className? : string;
+    className?: string;
 }
-export const ErrorPage = (props: ErrorPageProps) => {
-    const { className } = props;
+
+export const ErrorPage = ({ className }: ErrorPageProps) => {
     const { t } = useTranslation();
 
     const reloadPage = () => {
