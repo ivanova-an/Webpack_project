@@ -2,12 +2,13 @@ import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { LoginSchema } from 'features/AuthByUsername';
 import {
-    AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject,
+    AnyAction, EnhancedStore, Reducer, ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { ProfileSchema } from 'entities/Profile';
 import { To } from 'history';
 import { NavigateOptions } from 'react-router';
 import { AxiosInstance } from 'axios';
+import { CombinedState } from 'redux';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -31,7 +32,7 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
 
 export interface ThunkExtraArg {
     api: AxiosInstance,
-    navigate: (to: To, options?: NavigateOptions)=> void,
+    navigate?: (to: To, options?: NavigateOptions)=> void,
 }
 
 // чтобы типизовать { rejectValue: string, extra: ThunkExtraArg } мы создаем interface. Этот тип принимает T для ошибки

@@ -1,11 +1,12 @@
-import { configureStore, ReducersMapObject } from '@reduxjs/toolkit';
+import { configureStore, Reducer, ReducersMapObject } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
 import { createReducerManager } from 'app/providers/StoreProvider/config/reduserManager';
 import { $api } from 'shared/api/api';
 import { To } from 'history';
 import { NavigateOptions } from 'react-router';
-import { StateSchema } from './StateSchema';
+import { CombinedState } from 'redux';
+import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export function createReduxStore(
     initialState?: StateSchema,
@@ -22,19 +23,21 @@ export function createReduxStore(
     // Создадим reducerManager   в createReducerManager(список корневых редюсеров)
     const reducerManager = createReducerManager(rootReducers);
 
+    const extraArg: ThunkExtraArg = {
+        api: $api,
+        navigate,
+    };
+
     const store = configureStore({
         // добавляем наш reducerManager для работы с редюсерами
-        reducer: reducerManager.reduce,
+        reducer: reducerManager.reduce as Reducer<CombinedState<StateSchema>>,
         devTools: __IS_DEV__,
         preloadedState: initialState,
         // в thunk добавили extraArgument который внутри можно использовать
         middleware: (getDefaultMiddleware) => getDefaultMiddleware({
             thunk: {
                 // в extraArgument $api будем помещать, чтобы не импортировать в каждый файл с асинкфанком
-                extraArgument: {
-                    api: $api,
-                    navigate,
-                },
+                extraArgument: extraArg,
             },
         }),
     });
