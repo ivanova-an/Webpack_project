@@ -3,6 +3,7 @@ import { Provider } from 'react-redux';
 import { createReduxStore } from 'app/providers/StoreProvider/config/store';
 import { StateSchema } from 'app/providers/StoreProvider/config/StateSchema';
 import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
+import { useNavigate } from 'react-router-dom';
 
 interface StoreProviderProps {
     children?: ReactNode;
@@ -17,9 +18,13 @@ export const StoreProvider = (props: StoreProviderProps) => {
         asyncReducers,
     } = props;
 
+    //  с помощью useNavigate можем передвигаться по разным router
+    const navigate = useNavigate();
+
     const store = createReduxStore(
         initialState as StateSchema,
         asyncReducers as ReducersMapObject<StateSchema>,
+        navigate,
     );
 
     return (
