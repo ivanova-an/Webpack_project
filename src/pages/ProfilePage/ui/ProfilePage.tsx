@@ -3,7 +3,6 @@ import { useTranslation } from 'react-i18next';
 import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import {
     fetchProfileData,
-    getProfileData,
     getProfileError, getProfileForm,
     getProfileIsLoading, getProfileReadonly, profileActions,
     ProfileCard,
@@ -13,8 +12,8 @@ import { useCallback, useEffect } from 'react';
 import { useAppDispatch } from 'shared/lib/hook/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
-import {Country} from "entities/Country";
 
 const reducers: ReducersList = {
     profile: profileReducer,
