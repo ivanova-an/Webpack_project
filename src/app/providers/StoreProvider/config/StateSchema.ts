@@ -40,5 +40,6 @@ export interface ThunkExtraArg {
 export interface ThunkConfig<T> {
     // т.e. будем определять откуда-то из вне
     rejectValue: T;
-    extra: ThunkExtraArg
+    extra: ThunkExtraArg;
+    state: StateSchema;
 }

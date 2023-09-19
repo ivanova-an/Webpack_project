@@ -26,10 +26,10 @@
     }
   ],
   "profile": {
-    "first": "Тимур",
-    "lastname": "Ульби",
+    "first": "Ангелина",
+    "lastname": "Иванова",
     "age": 22,
-    "currency": "RUB",
+    "currency": "EUR",
     "country": "Russia",
     "city": "Moscow",
     "username": "admin",

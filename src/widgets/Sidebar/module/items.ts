@@ -8,10 +8,11 @@ export interface SidebarItemType {
     path: string,
     text: string,
     Icon: React.VFC<React.SVGProps<SVGSVGElement>>
+    authOnly?: boolean
 }
 
 // создаем массив который будет состоять из элементов этого типа SidebarItemType
-export const SidebarItemList: SidebarItemType[] = [
+export const SidebarItemsList: SidebarItemType[] = [
     {
         path: RoutePath.main,
         Icon: MainIcon,
@@ -26,5 +27,6 @@ export const SidebarItemList: SidebarItemType[] = [
         path: RoutePath.profile,
         Icon: ProfileIcon,
         text: 'Профиль',
+        authOnly: true,
     },
 ];
