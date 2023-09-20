@@ -48,9 +48,11 @@ const ProfilePage = (props: ProfilePageProps) => {
     };
 
     // воспользуемся useEffect, чтобы получать данные пользователя передыем fetchProfileData
-
     useEffect(() => {
-        dispatch(fetchProfileData());
+        // если проджект не равен сторибук, то в таком случае отправляем запрос на сервер
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const onChangeFirstname = useCallback((value?: string) => {

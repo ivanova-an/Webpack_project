@@ -25,6 +25,9 @@ export const updateProfileData = createAsyncThunk<
 
         try {
             const response = await extra.api.put<Profile>('/profile', formData);// в baseURL уже указан адрес
+            if (!response.data) {
+                throw new Error();
+            }
             return response.data;
         } catch (e) {
             console.log(e);

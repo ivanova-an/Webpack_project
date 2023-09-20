@@ -20,9 +20,9 @@ export const profileSlice = createSlice({
         },
         // отмена редактирования
         cancelEdit: (state) => {
-            state.readonly = true; // режим только для чтения
+            state.readonly = true;
             state.validateError = undefined;
-            state.form = state.data; // получить значение с сервера
+            state.form = state.data;
         },
         // обновляем весь profile целиком всю дату
         updateProfile: (state, action: PayloadAction<Profile>) => {
@@ -35,7 +35,7 @@ export const profileSlice = createSlice({
     extraReducers: (builder) => {
         builder
             .addCase(fetchProfileData.pending, (state) => {
-                state.validateError = undefined;
+                state.error = undefined;
                 state.isLoading = true;
             })
             .addCase(fetchProfileData.fulfilled, (
@@ -52,7 +52,7 @@ export const profileSlice = createSlice({
                 state.error = action.payload;
             })
             .addCase(updateProfileData.pending, (state) => {
-                state.error = undefined;
+                state.validateError = undefined;
                 state.isLoading = true;
             })
             .addCase(updateProfileData.fulfilled, (
