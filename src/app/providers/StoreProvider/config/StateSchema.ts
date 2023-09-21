@@ -9,12 +9,15 @@ import { To } from 'history';
 import { NavigateOptions } from 'react-router';
 import { AxiosInstance } from 'axios';
 import { CombinedState } from 'redux';
+import { ArticleDetailsSchema } from 'entities/Article';
 
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
+    // поля не обязательны, потому что редюсеры будут асинхронные
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
+    articleDetails?: ArticleDetailsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
