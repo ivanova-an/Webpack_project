@@ -102,6 +102,18 @@
       "text": "some comment 3",
       "articleId": "1",
       "userId": "1"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "text": "dss",
+      "id": "u7z3Nhu"
+    },
+    {
+      "articleId": "1",
+      "userId": "2",
+      "text": "dcdc",
+      "id": "Q2UAxaq"
     }
   ],
   "users": [
@@ -120,14 +132,28 @@
       "avatar": "https://xakep.ru/wp-content/uploads/2018/05/171485/KuroiSH-hacker.jpg"
     }
   ],
-  "profile": {
-    "first": "jgh",
-    "lastname": "asf",
-    "age": 465,
-    "currency": "RUB",
-    "country": "Belarus",
-    "city": "Moscow",
-    "username": "admin213",
-    "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAsIng4tusQLj7Cfvo1VkXPudJ5sgfVplCGjvdQLYgaXasVKRRollGo2vwXEom4pMlEwY&usqp=CAU"
-  }
+  "profile": [
+    {
+      "id": "1",
+      "first": "Ayutkbyf",
+      "lastname": "asf",
+      "age": 465,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAsIng4tusQLj7Cfvo1VkXPudJ5sgfVplCGjvdQLYgaXasVKRRollGo2vwXEom4pMlEwY&usqp=CAU"
+    },
+    {
+      "id": "2",
+      "first": "jgh",
+      "lastname": "asf",
+      "age": 14,
+      "currency": "RUB",
+      "country": "Belarus",
+      "city": "Moscow",
+      "username": "admin213",
+      "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSAsIng4tusQLj7Cfvo1VkXPudJ5sgfVplCGjvdQLYgaXasVKRRollGo2vwXEom4pMlEwY&usqp=CAU"
+    }
+  ]
 }

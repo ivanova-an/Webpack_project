@@ -1,33 +1,36 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from 'app/providers/StoreProvider';
-import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { Profile, ValidateProfileError } from '../../types/profile';
+import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 import { validateProfileData } from '../validateProfileData/validateProfileData';
 
-// отправка данных о пользователе
 export const updateProfileData = createAsyncThunk<
     Profile,
     void,
     ThunkConfig<ValidateProfileError[]>
 >(
     'profile/updateProfileData',
-    async (_, thunkAPI) => {
-        const { extra, rejectWithValue, getState } = thunkAPI;
+    async (_, thunkApi) => {
+        const { extra, rejectWithValue, getState } = thunkApi;
 
         const formData = getProfileForm(getState());
 
         const errors = validateProfileData(formData);
 
-        // если в этом массиве есть хотя бы один элемент то возращаем ошибку
         if (errors.length) {
             return rejectWithValue(errors);
         }
 
         try {
-            const response = await extra.api.put<Profile>('/profile', formData);// в baseURL уже указан адрес
+            const response = await extra.api.put<Profile>(
+                `/profile/${formData?.id}`,
+                formData,
+            );
+
             if (!response.data) {
                 throw new Error();
             }
+
             return response.data;
         } catch (e) {
             console.log(e);
