@@ -19,12 +19,12 @@ export const StoreProvider = (props: StoreProviderProps) => {
     } = props;
 
     //  с помощью useNavigate можем передвигаться по разным router
-    const navigate = useNavigate();
+    // const navigate = useNavigate();
 
     const store = createReduxStore(
         initialState as StateSchema,
         asyncReducers as ReducersMapObject<StateSchema>,
-        navigate,
+        // navigate,
     );
 
     return (

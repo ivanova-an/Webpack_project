@@ -27,13 +27,14 @@ export interface StateSchema {
 }
 
 export type StateSchemaKey = keyof StateSchema;
-
+export type MountedReducers = OptionalRecord<StateSchemaKey, boolean>;
 // тип для reducerManager
 export interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>;
     reduce: (state:StateSchema, action: AnyAction) =>CombinedState<StateSchema>;
     add: (key: StateSchemaKey, reducer: Reducer) =>void;
     remove: (key: StateSchemaKey) => void
+    getMountedReducers: () => MountedReducers;
 }
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
     reducerManager : ReducerManager
@@ -41,7 +42,6 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
 
 export interface ThunkExtraArg {
     api: AxiosInstance,
-    navigate?: (to: To, options?: NavigateOptions)=> void,
 }
 
 // чтобы типизовать { rejectValue: string, extra: ThunkExtraArg } мы создаем interface. Этот тип принимает T для ошибки
