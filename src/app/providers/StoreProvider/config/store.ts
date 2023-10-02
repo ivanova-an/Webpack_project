@@ -6,6 +6,7 @@ import { $api } from 'shared/api/api';
 import { To } from 'history';
 import { NavigateOptions } from 'react-router';
 import { CombinedState } from 'redux';
+import { uiReducer } from 'features/UI';
 import { StateSchema, ThunkExtraArg } from './StateSchema';
 
 export function createReduxStore(
@@ -18,6 +19,7 @@ export function createReduxStore(
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        ui: uiReducer,
     };
     // Создадим reducerManager   в createReducerManager(список корневых редюсеров)
     const reducerManager = createReducerManager(rootReducers);
